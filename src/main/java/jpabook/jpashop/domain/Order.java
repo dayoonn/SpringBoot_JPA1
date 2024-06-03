@@ -17,10 +17,10 @@ public class Order {
     @JoinColumn(name="member_id")
     private Member member; //연관관계 주인
 
-    @OneToMany(mappedBy = "order") //order 필드에 의해 매핑됨
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL) //order 필드에 의해 매핑됨
     private List<OrderItem> orderItems;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery; //연관관계 주인
 
