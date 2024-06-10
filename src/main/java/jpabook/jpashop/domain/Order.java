@@ -1,7 +1,9 @@
 package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -10,6 +12,7 @@ import java.util.List;
 @Entity
 @Table(name="orders") //이 어노테이션을 적지 않으면 Order 테이블이 생성됨.(order은 DB에서 오류날 수 있는 테이블 명)
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
 
     @Id @GeneratedValue
