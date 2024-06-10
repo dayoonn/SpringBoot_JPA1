@@ -22,4 +22,30 @@ public class OrderItem {
 
     private int orderPrice; //주문 당시 가격
     private int count; //주문 수량
+
+    //==생성 메서드==//
+    public static OrderItem createOrderItem(Item item,int orderPrice,int count){
+        OrderItem orderItem=new OrderItem(); //쿠폰이나 할인이 적용될 수 있기 때문에 item을 그대로 사용하지 않고 새로 new 해준다
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(orderPrice);
+        orderItem.setCount(count);
+
+        item.removeStock(count);
+        return orderItem;
+
+    }
+
+    //==비즈니스 로직==//
+    public void cancle() {
+        getItem().addStock(count); //재고 수량 변경
+    }
+
+    //==조회 로직==//
+
+    /**
+     * 고
+     */
+    public int getTotalPrice() {
+        return getOrderPrice()*getCount();
+    }
 }
