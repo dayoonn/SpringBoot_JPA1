@@ -79,7 +79,7 @@ public class Order {
     /**
      * 전체 주문 가격 조회
      */
-    public int 소(){
+    public int getTotalPrice(){
         int totalprice=0;
         for(OrderItem orderItem:orderItems){
             totalprice+=orderItem.getTotalPrice(); //
