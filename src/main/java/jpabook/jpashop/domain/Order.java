@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,7 +25,7 @@ public class Order {
     private Member member; //연관관계 주인
 
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL) //order 필드에 의해 매핑됨
-    private List<OrderItem> orderItems;
+    private List<OrderItem> orderItems=new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JoinColumn(name = "delivery_id")
