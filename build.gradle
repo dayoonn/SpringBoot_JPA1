@@ -29,6 +29,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-devtools' //서버 재시작 없이 refresh로 View 파일 변경이 가능
 	implementation 'junit:junit:4.13.1'
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0' //쿼리 파라미터 확인
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-hibernate5-jakarta' //자동 프록시 객체 초기화
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
 	annotationProcessor 'org.projectlombok:lombok'
