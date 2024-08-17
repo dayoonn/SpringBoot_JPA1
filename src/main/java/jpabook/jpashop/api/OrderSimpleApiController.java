@@ -7,6 +7,7 @@ import jpabook.jpashop.domain.OrderStatus;
 import jpabook.jpashop.repository.OrderRepository;
 import jpabook.jpashop.repository.OrderSearch;
 import jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto;
+import jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryRepository;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class OrderSimpleApiController {
     private final OrderRepository orderRepository;
+    private final OrderSimpleQueryRepository orderSimpleQueryRepository;
+
     /**
      * V1. 엔티티 직접 노출
      * - Hibernate5Module 모듈 등록, LAZY=null 처리 *
@@ -66,7 +69,7 @@ public class OrderSimpleApiController {
      * - select 절에서 원하는 데이터만 선택해서 조회 */
     @GetMapping("api/v4/simple-orders")
     public List<OrderSimpleQueryDto> ordersV4(){
-        return orderRepository.findOrderDtos();
+        return orderSimpleQueryRepository.findOrderDtos();
 
     }
 
